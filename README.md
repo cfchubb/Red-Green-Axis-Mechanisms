@@ -12,10 +12,20 @@ where sNum is the number of the subject (1,2,3,4 or 5), tNum is the number of th
 
 2. getCompressedFromDetailedData.m is called as follows:
 
-      CompressedData = getCompressedFromDetailedData(s,t)
+      CompressedData = getCompressedFromDetailedData(s,t);
       
 where s is the subject number (1, 2, 3, 4, or 5) and t is the task number (1, 2, 3 or 4).  CompressedData is a matrix each of whose rows summarizes the results from a unique perturbation-condition used to generate stimuli for subject s in task t.  A given row comprises the following entries:
 
       R1 R2 R3 R4 R5 R6 R7 R8 nCorrect nIncorrect
       
 The floating point numbers R1,R2,...,R8 give 8\*rho(1), 8\*rho(2),...,8\*rho(8) for the perturbation used to generate the stimuli in this condition.  nCorrect (nIncorrect) gives the number of trials in this condition to which subject s responded correctly (incorrectly).
+
+3. getAllCompressedData.m is called as follows:
+
+      allCompressedData = getAllCompressedData;
+      
+The output object, allCompressedData, is the 5 row by 4 column cell array such that
+
+      allCompressedData{s,t} = getCompressedFromDetailedData(s,t);
+      
+4. 
